@@ -1,5 +1,5 @@
 // --- Network Configuration ---
-const brokerUrl = 'ws://broker.hivemq.com:8000/mqtt'; // HiveMQ public websocket
+const brokerUrl = 'wss://broker.hivemq.com:8884/mqtt'; // HiveMQ secure websocket
 const topic = 'aircraft_monitor/telemetry/12345'; // Must match the ESP32!
 
 // --- Connect to MQTT ---
