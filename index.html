@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- MQTT.js for Websockets -->
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo-area">
+                <div class="status-indicator" id="connection-status"></div>
+                <h1>Aircraft Monitoring System</h1>
+            </div>
+            <div class="alert-banner hidden" id="alert-banner">
+                ⚠️ CRITICAL TILT DETECTED ⚠️
+            </div>
+        </header>
+
+        <main class="grid-layout">
+            <div class="card glass">
+                <h3>Altitude</h3>
+                <div class="value-container">
+                    <span class="value" id="val-altitude">0.0</span>
+                    <span class="unit">m</span>
+                </div>
+            </div>
+
+            <div class="card glass">
+                <h3>Pressure</h3>
+                <div class="value-container">
+                    <span class="value" id="val-pressure">0.0</span>
+                    <span class="unit">hPa</span>
+                </div>
+            </div>
+
+            <div class="card glass">
+                <h3>Temperature</h3>
+                <div class="value-container">
+                    <span class="value" id="val-temp">0.0</span>
+                    <span class="unit">°C</span>
+                </div>
+            </div>
+
+            <div class="card glass">
+                <h3>Humidity</h3>
+                <div class="value-container">
+                    <span class="value" id="val-humidity">0.0</span>
+                    <span class="unit">%</span>
+                </div>
+            </div>
+
+            <div class="card glass large-card">
+                <h3>Artificial Horizon (Pitch/Roll)</h3>
+                <div class="horizon-container">
+                    <div class="horizon-ball">
+                        <div class="horizon-sky" id="horizon-sky"></div>
+                        <div class="horizon-ground" id="horizon-ground"></div>
+                        <div class="horizon-line"></div>
+                    </div>
+                    <div class="aircraft-indicator"></div>
+                </div>
+                <div class="orientation-stats">
+                    <div>Pitch: <span id="val-pitch">0.0</span>°</div>
+                    <div>Roll: <span id="val-roll">0.0</span>°</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="frontend.js"></script>
+    <script src="backend.js"></script>
+</body>
+</html>
